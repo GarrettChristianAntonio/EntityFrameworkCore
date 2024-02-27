@@ -1,0 +1,20 @@
+﻿@model EFRepositoryMVC.DTOs.Prenda.CategoriaCreacionDTO
+
+@{
+    Layout = null;
+}
+
+<div id="containerResult">
+    <form id="categoriaForm" method="post" asp-action="addCategoria">
+        <div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <button type="submit" id="btnCrearCategoria">Enviar</button>
+    </form>
+</div>
+<div>
+
+</div>
+

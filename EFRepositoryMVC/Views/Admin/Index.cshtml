@@ -1,0 +1,49 @@
+﻿
+    <button type="button" id="btnAddCategoria">Agregar Categorias</button>
+    <button type="button" id="btnVerCategorias">Ver Categorias</button>
+
+    <div id="ContainerAdminIndex"></div>
+    
+
+    @section scripts {
+        <script>
+            $(document).ready(function () {
+            $("#btnAddCategoria").click(function () {
+                    $.ajax({
+                        url: '@Url.Action("_Categoria", "Categoria")',
+                        type: 'GET',
+                        success: function (result) {
+                            $("#ContainerAdminIndex").html(result);
+                        },
+                        error: function (error) {
+                            console.error('Error al cargar la información:', error);
+                        }
+                    });
+                });
+            $("#btnVerCategorias").click(function () {
+                $.ajax({
+                    url: '@Url.Action("GetAllCategorias", "Categoria")',
+                    type: 'GET',
+                    success: function (result) {
+                        $("#ContainerAdminIndex").html(result);
+                    },
+                    error: function (error) {
+                        console.error('Error al cargar la información:', error);
+                    }
+                });
+            });
+                $("#btnLimpiar").click(function () {
+                    $.ajax({
+
+                        success: function (result) {
+                            $("#ContainerAdminIndex").html("");
+                        },
+                        error: function (error) {
+                            console.error('Error al cargar la información:', error);
+                        }
+                    });
+                });
+
+            });
+        </script>
+    }
